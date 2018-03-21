@@ -2,24 +2,70 @@
 
 ;; ----- ido-last-directory-list -----
 (
+ ("/home/propc/Apps/kuresel-web/" . "admin/")
+ ("/home/propc/Apps/" . "kuresel-web/")
+ ("/home/propc/.local/share/" . "icons-in-terminal/")
+ ("/home/propc/.local/" . "share/")
+ ("/home/propc/.emacs.d/" . "sidebar.el/")
+ ("/home/propc/.config/fontconfig/" . "conf.d/")
+ ("/home/propc/.config/" . "fontconfig/")
  ("/home/propc/" . ".emacs.d/")
 )
 
 ;; ----- ido-work-directory-list -----
 (
  "/home/propc/.emacs.d/"
+ "/home/propc/"
+ "/home/propc/Apps/kuresel-web/admin/"
+ "/home/propc/.config/fontconfig/conf.d/"
+ "/home/propc/Documents/"
 )
 
 ;; ----- ido-work-file-list -----
 (
+ ".gitignore"
  "init.el"
+ ".zsh_history"
+ ".dev_settings.json"
+ "30-icons.conf"
+ "todos.org"
+ ".zshrc"
+ ".bashrc"
 )
 
 ;; ----- ido-dir-file-cache -----
 (
- ("/home/propc/.emacs.d/" (23218 3440 243251 312000) "./" ".git/" "elpa/" ".gitignore" "auto-save-list/" "README.md" "init.el" "../" "themes/")
+ ("/home/propc/.emacs.d/" (23218 22114 71317 184000) "./" "init.el~" ".git/" "elpa/" ".gitignore" "auto-save-list/" ".#init.el" "ido.last~" "README.md" "#init.el#" "ac-comphist.dat" "ido.last" "init.el" "../" "themes/")
 
- ("/home/propc/" (23218 3305 829491 505000) ".zcompdump" ".bash_logout" ".wget-hsts" "Downloads/" "Projects/" ".sudo_as_admin_successful" ".selected_editor" ".aws/" "./" ".Xauthority" ".3T/" ".purple/" ".pwd~" ".emacs.d/" ".meteorsession" ".config/" ".s3cfg" ".cordova/" ".rustup/" ".oracle_jre_usage/" ".local/" ".v8flags.6.2.414.44-node.11.8da214ac63eb32d7b6f0c6e07fef6544.json" ".xsession-errors.old" ".virtualenvs/" ".AndroidStudio2.3/" ".gnome/" ".mozilla/" "Apps/" ".meteor/" ".dbus/" ".netrc" ".babel.json" ".python_history" ".zshrc" ".Xmodmap" ".floorc.json" ".gem/" ".yarn/" ".gnupg/" ".oh-my-zsh/" ".thumbnails/" ".zsh-update" ".gitconfig" "Documents/" ".npm/" ".java/" ".mongorc.js" ".babel-cache/" ".v8flags.6.2.414.32-node.8.8da214ac63eb32d7b6f0c6e07fef6544.json" ".v8flags.6.2.414.32-node.8.propc.json" "Videos/" "Music/" ".node_repl_history" ".electron/" ".zprofile" ".gradle/" ".cache/" ".thunderbird/" ".ICEauthority" ".multirust/" ".dbshell" ".adobe/" ".xsession-errors" ".xscreensaver" ".nano/" "../" ".zsh_history" ".bundle/" ".macromedia/" ".serverlessrc" ".node-gyp/" ".zcompdump-propc-All-Series-5.2" ".profile" ".serverless/" "Desktop/" ".cargo/" ".gconf/" ".bash_history" ".zsh_history_bad" ".pki/" ".bashrc" ".pencil/" ".v8flags.5.8.283.41.8da214ac63eb32d7b6f0c6e07fef6544.json" ".gimp-2.8/" ".TreeSheets" "Pictures/" ".dia/" "redis-stable/" ".android/" ".pm2/" ".ssh/" ".keystore" ".yarnrc" ".pwd" "Public/")
+ ("/home/propc/Apps/kuresel-web/app/" (23215 38902 42588 132000) "run_root_nightwatch.sh" "tests/" "./" "server/" "settings.json~" ".dev_settings.json" ".scripts/" "README.md" ".meteor/" "node_modules/" "public/" ".babelrc" "smart.json" ".devrun.sh" "../" "settings.json" "package.json" "lib/" "smart.lock" "package-lock.json" "client/")
+
+ ("/home/propc/redis-stable/" (22924 27235 10252 872000) "tests/" "./" ".gitignore" "INSTALL" "Makefile" "runtest-sentinel" "README.md" "deps/" "runtest-cluster" "utils/" "sentinel.conf" "00-RELEASENOTES" "BUGS" "MANIFESTO" "COPYING" "../" "CONTRIBUTING" "src/" "redis.conf" "dump.rdb" "runtest")
+
+ ("/home/propc/Apps/kuresel-web/admin/" (23218 9157 402872 397000) "tests/" "./" "server/" "settings.json~" ".gitignore" ".dev_settings.json" ".scripts/" "methods/" "README.md" ".meteor/" "node_modules/" "router.js" "public/" "collections/" ".babelrc" ".mup/" ".devrun.sh" "private/" "../" "settings.json" "package.json" "lib/" "package-lock.json" "client/")
+
+ ("/home/propc/Apps/kuresel-web/" (23169 16555 222381 817000) "bha-mobile/" ".gitmodules" "./" ".git/" ".gitignore" "app/" "docs/" "README.md" "p2p-lessons/" "admin/" "../" ".eslintrc.json" "chess/")
+
+ ("/home/propc/.local/share/icons-in-terminal/" (23218 5119 100958 651000) "./" "icons.fish" "icons_bash_export.sh" "icons-in-terminal.el" "mapping.txt" "icons-in-terminal.ttf" "icons_bash_without_codepoint.sh" "../" "icons_bash.sh" "icons-in-terminal.h")
+
+ ("/home/propc/.local/share/" (23218 6500 872841 42000) "fish/" "applications/" "totem/" "folks/" "./" "recently-used.xbel.CS3XAZ" "icc/" "recently-used.xbel.AKKL3Y" "omf/" "flatpak/" "rhythmbox/" "heroku/" "recently-used.xbel" "icons-in-terminal/" "ibus-table/" "gnome-settings-daemon/" "mime/" "xfce4/" "gnome-shell/" "sounds/" "keyrings/" "session_migration-gnome" "libertine/" "xorg/" "orage/" "teamviewer/" "xfdashboard/" "gsettings-data-convert" "Trash/" "gvfs-metadata/" "tracker/" "xfpanel-switch/" "webkitgtk/" "icons/" "../" "ristretto/" "app-info/" "desktop-directories/" "nautilus/" "gegl-0.3/" "gpaste/" "gstreamer-1.0/" "evolution/" "gnome-software/" "teamviewer12/" "zeitgeist/" "vlc/" "qpdfview/")
+
+ ("/home/propc/.local/" (22816 2822 456960 73000) "./" "share/" "../")
+
+ ("/home/propc/.emacs.d/sidebar.el/" (23218 6838 970944 739000) "module-git/" "./" ".git/" "sidebar-buffers.el" "README.md" "sidebar-mu4e.el" "images/" "sidebar-face.el" "../" "sidebar-filemapping.el" "sidebar-select.el" "sidebar-utils.el" "sidebar.el")
+
+ ("/home/propc/" (23218 6818 611300 605000) ".zcompdump" ".bash_logout" ".wget-hsts" "Downloads/" "Projects/" ".sudo_as_admin_successful" ".selected_editor" ".aws/" "./" ".Xauthority" ".3T/" ".purple/" ".pwd~" ".emacs.d/" ".meteorsession" ".config/" ".s3cfg" ".cordova/" ".rustup/" ".oracle_jre_usage/" ".local/" ".v8flags.6.2.414.44-node.11.8da214ac63eb32d7b6f0c6e07fef6544.json" ".xsession-errors.old" ".virtualenvs/" "icons-in-terminal/" ".AndroidStudio2.3/" ".gnome/" ".mozilla/" "Apps/" ".meteor/" ".dbus/" ".netrc" ".babel.json" ".python_history" ".zshrc" ".Xmodmap" ".bashrc~" ".floorc.json" ".gem/" ".yarn/" ".gnupg/" ".oh-my-zsh/" ".thumbnails/" ".zsh-update" ".gitconfig" "Documents/" ".npm/" ".java/" ".zshrc~" ".mongorc.js" ".babel-cache/" ".v8flags.6.2.414.32-node.8.8da214ac63eb32d7b6f0c6e07fef6544.json" ".v8flags.6.2.414.32-node.8.propc.json" "Videos/" "Music/" ".node_repl_history" ".electron/" ".zprofile" ".gradle/" ".cache/" ".thunderbird/" ".ICEauthority" ".multirust/" ".fonts/" ".dbshell" ".adobe/" ".xsession-errors" ".xscreensaver" ".nano/" "../" ".zsh_history" ".bundle/" ".macromedia/" ".serverlessrc" ".node-gyp/" ".zcompdump-propc-All-Series-5.2" ".profile" ".serverless/" "Desktop/" ".cargo/" ".gconf/" ".bash_history" ".zsh_history_bad" ".pki/" ".bashrc" ".pencil/" ".v8flags.5.8.283.41.8da214ac63eb32d7b6f0c6e07fef6544.json" ".gimp-2.8/" ".TreeSheets" "Pictures/" ".dia/" "redis-stable/" ".android/" ".pm2/" ".ssh/" ".keystore" ".yarnrc" ".pwd" "Public/")
+
+ ("/home/propc/.config/fontconfig/conf.d/" (23218 5837 328245 456000) "./" "30-icons.conf" "../" "30-icons.conf~")
+
+ ("/home/propc/.config/fish/" (23218 6175 602472 144000) "./" "fishd.propc-All-Series" "../")
+
+ ("/home/propc/.config/" (23218 6175 534473 314000) "fish/" "skypeforlinux/" "opera/" "htop/" "keep-calm/" "fontconfig/" "totem/" "menus/" "./" "pavucontrol.ini" "user-dirs.dirs" "hexchat/" "goa-1.0/" "Electron/" "enchant/" "matplotlib/" "Thunar/" "spotify/" "etcher/" "heroku/" "xfce4-dict/" "xfce4/" "Trolltech.conf" "yarn/" "filezilla/" "yelp/" "Postman/" "gtk-3.0/" "Mousepad/" "cef_user_data/" "Slack/" "transmission/" "gnome-games/" "eog/" "orage/" "teamviewer/" "libreoffice/" "stacer/" "mimeapps.list" "QtProject.conf" "update-notifier/" "gedit/" "Pencil/" "xfce4-session/" "pulse/" "Brackets/" "libaccounts-glib/" "autostart/" "keepassx/" "dleyna-renderer-service.conf" "../" "ristretto/" "nautilus/" "ibus/" "3T/" "user-dirs.locale" "electron-quick-start/" "gnome-initial-setup-done" "evolution/" "dconf/" "vlc/" "gnome-session/" "qpdfview/" "gnome-control-center/" "electron-demo/" "gtk-2.0/" "gigolo/" "configstore/" "google-chrome/")
+
+ ("/home/propc/.config/fontconfig/" (23218 5116 964997 633000) "./" "conf.d/" "../")
+
+ ("/home/propc/Documents/" (23218 4878 741377 539000) "bilgiler(fırat).docx" "./" "BGYS_FR14 Envanter Listesi.xlsx" "zoho-eposta-listesi.CSV" "zoho-kuresel-yedek-22-01-18/" "wowza-streaming-engine-setup-guide.org" "benihafifealma.com/" "cpcbelgelendirme.com/" "proje-yedekleri/" "meteor-deploy-with-mup.org" "kim_yapacak.js" "mongodb_restore.md" "todos.org~" "proyk.kdbx" "meteor-deploy-with-mup.org~" "yedek-yayin-sunucusu.odt" "#todos.org#" "kureselonline.com/" "../" "mongo_shell_find_and_replace.md" "nginx_proxy_pass_example.conf" "programs/" "todos.org" ".#todos.org")
+
+ ("/home/propc/Apps/" (23216 49685 833534 396000) "github-backup-to-s3/" "./" "artinet/" "kuresel-web/" "push-notification/" "p2p-lesson/" "cpc-belge/" "kuresel-survey/" "kureselonline-app/" "kureselonline-website/" "p2p-lessons-old/" "graphql-api/" "../" "galaxy-phantomjs-autoscale/" "kredilink/" "cpc-belge (copy 1)/")
 )
 
 ;; ----- ido-unc-hosts-cache -----

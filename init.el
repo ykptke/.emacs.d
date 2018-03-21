@@ -4,6 +4,10 @@
 ;; You may delete these explanatory comments.
 
 (package-initialize)
+(package-initialize)
+(unless package-archive-contents
+  (package-refresh-contents))
+(package-install-selected-packages)
 
 (require 'package)
 ;; add MELPA to repository list
@@ -66,20 +70,6 @@
 
 ;; json-mode
 (require 'json-mode)
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   (quote
-    (golden-ratio graphql-mode floobits mocha mocha-snippets python-mode web-mode smartparens magit json-mode js2-mode ido-vertical-mode highlight-indent-guides flycheck auto-complete))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
 
 ;; search anything in files.
 (global-set-key (kbd "M-ğ s") 'rgrep)
@@ -92,3 +82,8 @@
 
 ;; fullscreen on startup
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
+
+(require 'all-the-icons)
+(require 'neotree)
+(global-set-key [f8] 'neotree-toggle)
+(setq neo-theme (if (display-graphic-p) 'icons 'arrow))
