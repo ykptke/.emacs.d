@@ -89,3 +89,6 @@
 ;; automatically resize the focused window
 (require 'golden-ratio)
 (golden-ratio-mode 1)
+
+;; fullscreen on startup
+(add-to-list 'default-frame-alist '(fullscreen . maximized))

@@ -1,0 +1,26 @@
+;;; -*- coding: utf-8 -*-
+
+;; ----- ido-last-directory-list -----
+(
+ ("/home/propc/" . ".emacs.d/")
+)
+
+;; ----- ido-work-directory-list -----
+(
+ "/home/propc/.emacs.d/"
+)
+
+;; ----- ido-work-file-list -----
+(
+ "init.el"
+)
+
+;; ----- ido-dir-file-cache -----
+(
+ ("/home/propc/.emacs.d/" (23218 3440 243251 312000) "./" ".git/" "elpa/" ".gitignore" "auto-save-list/" "README.md" "init.el" "../" "themes/")
+
+ ("/home/propc/" (23218 3305 829491 505000) ".zcompdump" ".bash_logout" ".wget-hsts" "Downloads/" "Projects/" ".sudo_as_admin_successful" ".selected_editor" ".aws/" "./" ".Xauthority" ".3T/" ".purple/" ".pwd~" ".emacs.d/" ".meteorsession" ".config/" ".s3cfg" ".cordova/" ".rustup/" ".oracle_jre_usage/" ".local/" ".v8flags.6.2.414.44-node.11.8da214ac63eb32d7b6f0c6e07fef6544.json" ".xsession-errors.old" ".virtualenvs/" ".AndroidStudio2.3/" ".gnome/" ".mozilla/" "Apps/" ".meteor/" ".dbus/" ".netrc" ".babel.json" ".python_history" ".zshrc" ".Xmodmap" ".floorc.json" ".gem/" ".yarn/" ".gnupg/" ".oh-my-zsh/" ".thumbnails/" ".zsh-update" ".gitconfig" "Documents/" ".npm/" ".java/" ".mongorc.js" ".babel-cache/" ".v8flags.6.2.414.32-node.8.8da214ac63eb32d7b6f0c6e07fef6544.json" ".v8flags.6.2.414.32-node.8.propc.json" "Videos/" "Music/" ".node_repl_history" ".electron/" ".zprofile" ".gradle/" ".cache/" ".thunderbird/" ".ICEauthority" ".multirust/" ".dbshell" ".adobe/" ".xsession-errors" ".xscreensaver" ".nano/" "../" ".zsh_history" ".bundle/" ".macromedia/" ".serverlessrc" ".node-gyp/" ".zcompdump-propc-All-Series-5.2" ".profile" ".serverless/" "Desktop/" ".cargo/" ".gconf/" ".bash_history" ".zsh_history_bad" ".pki/" ".bashrc" ".pencil/" ".v8flags.5.8.283.41.8da214ac63eb32d7b6f0c6e07fef6544.json" ".gimp-2.8/" ".TreeSheets" "Pictures/" ".dia/" "redis-stable/" ".android/" ".pm2/" ".ssh/" ".keystore" ".yarnrc" ".pwd" "Public/")
+)
+
+;; ----- ido-unc-hosts-cache -----
+t
