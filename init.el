@@ -55,9 +55,9 @@
 (setq web-mode-code-indent-offset 2)
 
 ;;jsx-mode
-(add-to-list 'auto-mode-alist '("\\.js[x]?\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.jsx\\'" . web-mode))
 (setq web-mode-content-types-alist
-'(("jsx" . "\\.js[x]?\\'")))
+'(("jsx" . "\\.jsx\\'")))
 
 ;; highlight-indent-guides
 (require 'highlight-indent-guides)
