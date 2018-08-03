@@ -38,7 +38,10 @@
 
 ;; flycheck
 (require 'flycheck)
-(global-flycheck-mode)
+(add-hook 'after-init-hook #'global-flycheck-mode)
+(eval-after-load 'flycheck
+  '(custom-set-variables
+    '(flycheck-disabled-checkers '(javascript-jshint javascript-jscs))))
 
 ;; ido-vertical-mode
 (require 'ido-vertical-mode)
@@ -87,3 +90,5 @@
 (require 'neotree)
 (global-set-key [f8] 'neotree-toggle)
 (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
+
+(setq-default indent-tabs-mode nil)
