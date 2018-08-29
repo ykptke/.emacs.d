@@ -47,11 +47,11 @@
 (global-set-key (kbd "M-ş s") 'magit-status)
 (global-set-key (kbd "M-ş b") 'magit-blame)
 
-(use-package flycheck
-  :ensure t
-  :init (global-flycheck-mode))
+;; flycheck
+(package-install 'flycheck)
+(global-flycheck-mode)
 
-;; disable jshint
+;; disable wjshint
 (setq-default flycheck-disabled-checkers
   (append flycheck-disabled-checkers
     '(javascript-jshint)))
@@ -104,12 +104,6 @@
 (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
 
 (setq-default indent-tabs-mode nil)
-
-;; store all backup and autosave files in the tmp dir
-(setq backup-directory-alist
-      `((".*" . ,temporary-file-directory)))
-(setq auto-save-file-name-transforms
-      `((".*" ,temporary-file-directory t)))
 
 ;; empty scratch buffer
 (setq inhibit-splash-screen t)
