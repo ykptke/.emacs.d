@@ -4,19 +4,31 @@
 ;; You may delete these explanatory comments.
 
 (package-initialize)
-(unless package-archive-contents
-  (package-refresh-contents))
-(package-install-selected-packages)
 
 (require 'package)
 ;; add MELPA to repository list
 (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
 
-;; js2-mode
-(require 'js2-mode)
-(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
-(setq js2-basic-offset 2)
-(setq-default js2-basic-offset 2)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (rjsx-mode git-timemachine yaml-mode htmlize web-mode smartparens org neotree magit json-mode js2-mode ido-vertical-mode highlight-indent-guides golden-ratio flycheck exec-path-from-shell auto-complete all-the-icons))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+
+;; js indendation
+(setq js-indent-level 2)
+(setq js-switch-indent-offset 2)
+
+(setq-default indent-tabs-mode nil)
 
 ;; auto-complate mode
 (require 'auto-complete)
@@ -35,12 +47,18 @@
 (global-set-key (kbd "M-ş s") 'magit-status)
 (global-set-key (kbd "M-ş b") 'magit-blame)
 
-;; flycheck
-(require 'flycheck)
-(add-hook 'after-init-hook #'global-flycheck-mode)
-(eval-after-load 'flycheck
-  '(custom-set-variables
-    '(flycheck-disabled-checkers '(javascript-jshint javascript-jscs))))
+(use-package flycheck
+  :ensure t
+  :init (global-flycheck-mode))
+
+;; disable jshint
+(setq-default flycheck-disabled-checkers
+  (append flycheck-disabled-checkers
+    '(javascript-jshint)))
+
+;; use eslint with js-mode
+(flycheck-add-mode 'javascript-eslint 'js-mode)
+(flycheck-add-mode 'javascript-eslint 'rjsx-mode)
 
 ;; ido-vertical-mode
 (require 'ido-vertical-mode)
@@ -55,11 +73,6 @@
 (setq web-mode-css-indent-offset 2)
 ;; Script/code offset indentation (for JavaScript, Java, PHP, Ruby, Go, VBScript, Python, etc.)
 (setq web-mode-code-indent-offset 2)
-
-;;jsx-mode
-(add-to-list 'auto-mode-alist '("\\.jsx\\'" . web-mode))
-(setq web-mode-content-types-alist
-'(("jsx" . "\\.jsx\\'")))
 
 ;; highlight-indent-guides
 (require 'highlight-indent-guides)
@@ -97,3 +110,16 @@
       `((".*" . ,temporary-file-directory)))
 (setq auto-save-file-name-transforms
       `((".*" ,temporary-file-directory t)))
+
+;; empty scratch buffer
+(setq inhibit-splash-screen t)
+(switch-to-buffer "*scratch*")
+
+;; remove scratch message
+(setq initial-scratch-message nil)
+
+;; register rjxs-mode for all .js files
+;; (add-to-list 'auto-mode-alist '("components\\/.*\\.js\\'" . rjsx-mode))
+(add-to-list 'auto-mode-alist '(".*\\.js\\'" . rjsx-mode))
+
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
