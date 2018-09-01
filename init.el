@@ -1,8 +1,3 @@
-;; Added by Package.el.  This must come before configurations of
-;; installed packages.  Don't delete this line.  If you don't want it,
-;; just comment it out by adding a semicolon to the start of the line.
-;; You may delete these explanatory comments.
-
 (package-initialize)
 
 (require 'package)
@@ -16,7 +11,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (rjsx-mode git-timemachine yaml-mode htmlize web-mode smartparens org neotree magit json-mode js2-mode ido-vertical-mode highlight-indent-guides golden-ratio flycheck exec-path-from-shell auto-complete all-the-icons))))
+    (git-timemachine yaml-mode htmlize web-mode org neotree magit json-mode js2-mode ido-vertical-mode highlight-indent-guides golden-ratio flycheck exec-path-from-shell auto-complete all-the-icons))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -47,25 +42,6 @@
 (global-set-key (kbd "M-ş s") 'magit-status)
 (global-set-key (kbd "M-ş b") 'magit-blame)
 
-;; flycheck
-(package-install 'flycheck)
-(global-flycheck-mode)
-
-;; disable wjshint
-(setq-default flycheck-disabled-checkers
-  (append flycheck-disabled-checkers
-    '(javascript-jshint)))
-
-;; use eslint with js-mode
-(flycheck-add-mode 'javascript-eslint 'js-mode)
-(flycheck-add-mode 'javascript-eslint 'rjsx-mode)
-
-;; ido-vertical-mode
-(require 'ido-vertical-mode)
-(ido-mode 1)
-(ido-vertical-mode 1)
-(setq ido-vertical-define-keys 'C-n-and-C-p-only)
-
 ;; web-mode
 (require 'web-mode)
 (setq web-mode-markup-indent-offset 2)
@@ -74,17 +50,39 @@
 ;; Script/code offset indentation (for JavaScript, Java, PHP, Ruby, Go, VBScript, Python, etc.)
 (setq web-mode-code-indent-offset 2)
 
+;;jsx-mode
+(add-to-list 'auto-mode-alist '("\\.js[x]?\\'" . web-mode))
+(setq web-mode-content-types-alist
+'(("jsx" . "\\.js[x]?\\'")))
+
 ;; highlight-indent-guides
 (require 'highlight-indent-guides)
 (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
 (setq highlight-indent-guides-method 'column)
 
-;; smartparens
-(require 'smartparens)
-(smartparens-global-mode)
-
 ;; json-mode
 (require 'json-mode)
+
+;; flycheck
+(package-install 'flycheck)
+(global-flycheck-mode)
+
+;; disable jshint
+(setq-default flycheck-disabled-checkers
+  (append flycheck-disabled-checkers
+    '(javascript-jshint)))
+
+;; use eslint with web-mode for jsx files
+(flycheck-add-mode 'javascript-eslint 'web-mode)
+
+;; use eslint with js-mode
+(flycheck-add-mode 'javascript-eslint 'js-mode)
+
+;; ido-vertical-mode
+(require 'ido-vertical-mode)
+(ido-mode 1)
+(ido-vertical-mode 1)
+(setq ido-vertical-define-keys 'C-n-and-C-p-only)
 
 ;; search anything in files.
 (global-set-key (kbd "M-ğ s") 'rgrep)
@@ -112,8 +110,10 @@
 ;; remove scratch message
 (setq initial-scratch-message nil)
 
-;; register rjxs-mode for all .js files
-;; (add-to-list 'auto-mode-alist '("components\\/.*\\.js\\'" . rjsx-mode))
-(add-to-list 'auto-mode-alist '(".*\\.js\\'" . rjsx-mode))
-
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
+
+;; store all backup and autosave files in the tmp dir
+(setq backup-directory-alist
+      `((".*" . ,temporary-file-directory)))
+(setq auto-save-file-name-transforms
+      `((".*" ,temporary-file-directory t)))
