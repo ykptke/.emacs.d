@@ -1,3 +1,13 @@
+.smex-items
+*~$
+places
+.recentf
+ido.last
+cider-history
+projectile-bookmarks.eld
+projectile.cache
+auto-save-list
+backups
 /url/cache
 /.emacs.desktop
 /auto-save-list
@@ -58,7 +68,6 @@ elpa/
 eshell/
 init-elpy-experiment
 init_bash.sh
-places
 projectile-bookmarks.eld
 recentf
 .emacs.desktop*
