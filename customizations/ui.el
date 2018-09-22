@@ -54,7 +54,15 @@
   (reapply-themes))
 
 ;; increase font size for better readability
-(set-face-attribute 'default nil :height 140)
+(set-face-attribute 'default nil :height 110)
+
+;; automatically adjust font size
+(defun font-scale-on-frame-width ()
+  (if (> (x-display-pixel-width) 1280)
+      (set-face-attribute 'default nil :height 130)
+    (set-face-attribute 'default nil :height 110))
+  )
+(add-hook 'after-init-hook 'font-scale-on-frame-width)
 
 ;; Uncomment the lines below by removing semicolons and play with the
 ;; values in order to set the width (in characters wide) and height
