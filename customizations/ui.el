@@ -53,12 +53,9 @@
   (setq custom-enabled-themes '(sanityinc-tomorrow-bright))
   (reapply-themes))
 
-;; increase font size for better readability
-(set-face-attribute 'default nil :height 110)
-
 ;; automatically adjust font size
 (defun font-scale-on-frame-width ()
-  (if (> (x-display-pixel-width) 1280)
+  (if (> (display-pixel-width) 1380)
       (set-face-attribute 'default nil :height 130)
     (set-face-attribute 'default nil :height 110))
   )
