@@ -62,7 +62,7 @@
 (setq electric-indent-mode nil)
 
 ;; disable selection copy
-(setq x-select-enable-primary nil)
+(setq select-enable-primary nil)
 
 ;; delete whitespaces
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
