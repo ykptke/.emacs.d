@@ -69,3 +69,6 @@
 
 ;; Company is a text completion framework
 (add-hook 'after-init-hook 'global-company-mode)
+
+;; Smartparens is a minor mode for dealing with pairs
+(smartparens-global-mode)
