@@ -1,5 +1,9 @@
 ;; Enable TypeScript Interactive Development Environment
 
+;; indent
+(setq typescript-indent-level 2)
+
+;; Typescript
 (defun setup-tide-mode ()
   (interactive)
   (tide-setup)
