@@ -39,11 +39,7 @@
 ;; manually with M-x package-install
 ;; Add in your own as you wish:
 (defvar my-packages
-  '(;; makes handling lisp expressions much, much easier
-    ;; Cheatsheet: http://www.emacswiki.org/emacs/PareditCheatsheet
-    paredit
-
-    ;; key bindings and code colorization for Clojure
+  '(;; key bindings and code colorization for Clojure
     ;; https://github.com/clojure-emacs/clojure-mode
     clojure-mode
 
@@ -84,6 +80,15 @@
     flycheck
 
     js2-mode
+
+    ;; company is a text completion framework
+    company
+
+    ;; typescript mode
+    typescript-mode
+
+    ;; TypeScript Interactive Development Environment
+    tide
 
     ;; tomorrow themes
     color-theme-sanityinc-tomorrow))
@@ -152,21 +157,4 @@
 (load "setup-clojure.el")
 (load "setup-js.el")
 (load "setup-flycheck.el")
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(custom-enabled-themes (quote (sanityinc-tomorrow-bright)))
- '(custom-safe-themes
-   (quote
-    ("bb08c73af94ee74453c90422485b29e5643b73b05e8de029a6909af6a3fb3f58" "1b8d67b43ff1723960eb5e0cba512a2c7a2ad544ddb2533a90101fd1852b426e" default)))
- '(package-selected-packages
-   (quote
-    (rjsx-mode web-mode tagedit smex rainbow-delimiters projectile paredit magit js2-mode ido-ubiquitous git-timemachine flycheck clojure-mode-extra-font-locking cider))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+(load "setup-typescript.el")

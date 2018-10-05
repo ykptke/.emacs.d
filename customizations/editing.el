@@ -66,3 +66,6 @@
 
 ;; delete whitespaces
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
+
+;; Company is a text completion framework
+(add-hook 'after-init-hook 'global-company-mode)
