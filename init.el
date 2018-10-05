@@ -158,8 +158,8 @@
 
 ;; Langauage-specific
 (load "setup-clojure.el")
-(load "setup-js.el")
 (load "setup-flycheck.el")
+(load "setup-javascript.el")
 (load "setup-typescript.el")
 (custom-set-variables
  ;; custom-set-variables was added by Custom.

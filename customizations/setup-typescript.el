@@ -1,8 +1,5 @@
 ;; Enable TypeScript Interactive Development Environment
 
-;; indent
-(setq typescript-indent-level 2)
-
 ;; Typescript
 (defun setup-tide-mode ()
   (interactive)
@@ -23,3 +20,6 @@
 (add-hook 'before-save-hook 'tide-format-before-save)
 
 (add-hook 'typescript-mode-hook #'setup-tide-mode)
+
+;; indent
+(setq typescript-indent-level 2)
