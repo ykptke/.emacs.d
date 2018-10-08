@@ -29,6 +29,10 @@
                                                "backups"))))
 (setq auto-save-default nil)
 
+;; empty scratch buffer
+(setq inhibit-splash-screen t)
+(switch-to-buffer "*scratch*")
+
 ;; comments
 (defun toggle-comment-on-line ()
   "comment or uncomment current line"
