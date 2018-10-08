@@ -1,17 +1,3 @@
-;; Customizations relating to editing a buffer.
-
-;; Key binding to use "hippie expand" for text autocompletion
-;; http://www.emacswiki.org/emacs/HippieExpand
-(global-set-key (kbd "M-/") 'hippie-expand)
-
-;; Lisp-friendly hippie expand
-(setq hippie-expand-try-functions-list
-      '(try-expand-dabbrev
-        try-expand-dabbrev-all-buffers
-        try-expand-dabbrev-from-kill
-        try-complete-lisp-symbol-partially
-        try-complete-lisp-symbol))
-
 ;; Highlights matching parenthesis
 (show-paren-mode 1)
 
@@ -43,7 +29,6 @@
                                                "backups"))))
 (setq auto-save-default nil)
 
-
 ;; comments
 (defun toggle-comment-on-line ()
   "comment or uncomment current line"
@@ -59,8 +44,6 @@
   (untabify (region-beginning) (region-end))
   (keyboard-quit))
 
-(setq electric-indent-mode nil)
-
 ;; disable selection copy
 (setq select-enable-primary nil)
 
@@ -72,3 +55,13 @@
 
 ;; Smartparens is a minor mode for dealing with pairs
 (smartparens-global-mode)
+
+;; search anything in files.
+(global-set-key (kbd "M-ğ s") 'rgrep)
+;; deleting all white space in file.
+(global-set-key (kbd "M-ğ w") 'delete-trailing-whitespace)
+
+;; magit status
+(global-set-key (kbd "M-ş s") 'magit-status)
+;; magit blame
+(global-set-key (kbd "M-ş b") 'magit-blame)

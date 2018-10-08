@@ -16,11 +16,6 @@
 ;; fullscreen on startup
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 
-;; You can uncomment this to remove the graphical toolbar at the top. After
-;; awhile, you won't need the toolbar.
-;; (when (fboundp 'tool-bar-mode)
-;;   (tool-bar-mode -1))
-
 ;; Don't show native OS scroll bars for buffers because they're redundant
 (when (fboundp 'scroll-bar-mode)
   (scroll-bar-mode -1))
@@ -61,11 +56,6 @@
   )
 (add-hook 'after-init-hook 'font-scale-on-frame-width)
 
-;; Uncomment the lines below by removing semicolons and play with the
-;; values in order to set the width (in characters wide) and height
-;; (in lines high) Emacs will have whenever you start it
-;; (setq initial-frame-alist '((top . 0) (left . 0) (width . 177) (height . 53)))
-
 ;; These settings relate to how emacs interacts with your operating system
 (setq ;; makes killing/yanking interact with the clipboard
       x-select-enable-clipboard t
@@ -88,12 +78,6 @@
 
 ;; No cursor blinking, it's distracting
 (blink-cursor-mode 0)
-
-;; full path in title bar
-(setq-default frame-title-format "%b (%f)")
-
-;; don't pop up font menu
-(global-set-key (kbd "s-t") '(lambda () (interactive)))
 
 ;; no bell
 (setq ring-bell-function 'ignore)

@@ -9,5 +9,8 @@
 ;; use eslit with js2-mode
 (flycheck-add-mode 'javascript-eslint 'js2-mode)
 
-;; use eslint with rjsx-mode
-(flycheck-add-mode 'javascript-eslint 'rjsx-mode)
+;; configure jsx-tide checker to run after your default jsx checker
+(flycheck-add-mode 'javascript-eslint 'web-mode)
+
+;; enable typescript-tslint checker
+(flycheck-add-mode 'typescript-tslint 'web-mode)
