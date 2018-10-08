@@ -1,5 +1,5 @@
 ;; flycheck syntax check
-(add-hook 'after-init-hook #'global-flycheck-mode)
+(global-flycheck-mode)
 
 ;; disable jshint
 (setq-default flycheck-disabled-checkers
