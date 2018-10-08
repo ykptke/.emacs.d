@@ -78,3 +78,4 @@ ido.last
 *.elc
 *.data
 .last-package-update-day
+flycheck_init.el
