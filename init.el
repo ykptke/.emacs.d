@@ -94,7 +94,10 @@
     tide
 
     ;; tomorrow themes
-    color-theme-sanityinc-tomorrow))
+    color-theme-sanityinc-tomorrow
+
+    ;;js mode for reactjs
+    rjsx-mode))
 
 
 ;; On OS X, an Emacs instance started from the graphical user
