@@ -40,7 +40,11 @@
     ;; syntax checking extension
     flycheck
 
+    json-mode
     js2-mode
+
+    ;; js mode for reactjs
+    rjsx-mode
 
     ;; company is a text completion framework
     company
@@ -92,7 +96,7 @@
  '(custom-enabled-themes (quote (sanityinc-tomorrow-bright)))
  '(custom-safe-themes
    (quote
-    ("1b8d67b43ff1723960eb5e0cba512a2c7a2ad544ddb2533a90101fd1852b426e" default)))
+    ("bb08c73af94ee74453c90422485b29e5643b73b05e8de029a6909af6a3fb3f58" "1b8d67b43ff1723960eb5e0cba512a2c7a2ad544ddb2533a90101fd1852b426e" default)))
  '(package-selected-packages
    (quote
     (rjsx-mode color-theme-sanityinc-tomorrow tide typescript-mode company js2-mode flycheck web-mode git-timemachine magit smartparens))))
