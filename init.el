@@ -55,6 +55,10 @@
     ;; TypeScript Interactive Development Environment
     tide
 
+    ;; yasnippets
+    yasnippet
+    react-snippets
+
     ;; tomorrow themes
     color-theme-sanityinc-tomorrow))
 
@@ -99,7 +103,7 @@
     ("bb08c73af94ee74453c90422485b29e5643b73b05e8de029a6909af6a3fb3f58" "1b8d67b43ff1723960eb5e0cba512a2c7a2ad544ddb2533a90101fd1852b426e" default)))
  '(package-selected-packages
    (quote
-    (rjsx-mode color-theme-sanityinc-tomorrow tide typescript-mode company js2-mode flycheck web-mode git-timemachine magit smartparens))))
+    (react-snippets yasnippet elpy rjsx-mode color-theme-sanityinc-tomorrow tide typescript-mode company js2-mode flycheck web-mode git-timemachine magit smartparens))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
