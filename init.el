@@ -59,6 +59,9 @@
     yasnippet
     react-snippets
 
+    ;; elpy for python
+    elpy
+
     ;; tomorrow themes
     color-theme-sanityinc-tomorrow))
 
@@ -93,6 +96,7 @@
 (load "setup-javascript.el")
 (load "setup-typescript.el")
 (load "setup-yasnippet.el")
+(load "setup-elpy.el")
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
