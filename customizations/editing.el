@@ -69,3 +69,11 @@
 (global-set-key (kbd "M-ş s") 'magit-status)
 ;; magit blame
 (global-set-key (kbd "M-ş b") 'magit-blame)
+
+;; Navigation paragraph
+(global-set-key (kbd "M-p") 'backward-paragraph)
+(global-set-key (kbd "M-n") 'forward-paragraph)
+
+;; Navigation buffer top-end
+(global-set-key (kbd "C-ğ") 'beginning-of-buffer)
+(global-set-key (kbd "C-ü") 'end-of-buffer)
