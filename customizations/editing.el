@@ -77,3 +77,7 @@
 ;; Navigation buffer top-end
 (global-set-key (kbd "C-ğ") 'beginning-of-buffer)
 (global-set-key (kbd "C-ü") 'end-of-buffer)
+
+;; Next/Prev buffer
+(global-set-key (kbd "M-ş n") 'next-buffer)
+(global-set-key (kbd "M-ş p") 'previous-buffer)
