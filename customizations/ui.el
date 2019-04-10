@@ -48,14 +48,6 @@
   (setq custom-enabled-themes '(sanityinc-tomorrow-bright))
   (reapply-themes))
 
-;; automatically adjust font size
-(defun font-scale-on-frame-width ()
-  (if (> (display-pixel-width) 1380)
-      (set-face-attribute 'default nil :height 130)
-    (set-face-attribute 'default nil :height 110))
-  )
-(add-hook 'after-init-hook 'font-scale-on-frame-width)
-
 ;; These settings relate to how emacs interacts with your operating system
 (setq ;; makes killing/yanking interact with the clipboard
       x-select-enable-clipboard t
