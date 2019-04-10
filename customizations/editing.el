@@ -51,9 +51,6 @@
 ;; disable selection copy
 (setq select-enable-primary nil)
 
-;; delete whitespaces
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
-
 ;; Company is a text completion framework
 (add-hook 'after-init-hook 'global-company-mode)
 
@@ -81,3 +78,9 @@
 ;; Next/Prev buffer
 (global-set-key (kbd "M-ş n") 'next-buffer)
 (global-set-key (kbd "M-ş p") 'previous-buffer)
+
+;; key bindings
+(when (eq system-type 'darwin) ;; mac specific settings
+  (setq mac-option-modifier nil
+        mac-command-modifier 'meta
+        x-select-enable-clipboard t))

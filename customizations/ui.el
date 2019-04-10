@@ -56,9 +56,6 @@
   )
 (add-hook 'after-init-hook 'font-scale-on-frame-width)
 
-;; set default font
-(set-frame-font "Inconsolata-12")
-
 ;; These settings relate to how emacs interacts with your operating system
 (setq ;; makes killing/yanking interact with the clipboard
       x-select-enable-clipboard t
