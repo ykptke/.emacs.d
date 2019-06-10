@@ -14,3 +14,6 @@
 (setq web-mode-css-indent-offset 2)
 ;; Script/code offset indentation (for JavaScript, Java, PHP, Ruby, Go, VBScript, Python, etc.)
 (setq web-mode-code-indent-offset 2)
+
+(when (memq window-system '(mac ns x))
+  (exec-path-from-shell-initialize))

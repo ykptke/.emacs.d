@@ -39,7 +39,8 @@
 
     ;; syntax checking extension
     flycheck
-
+    
+    exec-path-from-shell
     json-mode
     js2-mode
 
