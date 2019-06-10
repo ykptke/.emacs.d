@@ -41,6 +41,7 @@
     flycheck
     
     exec-path-from-shell
+    add-node-modules-path
     json-mode
     js2-mode
 

@@ -5,3 +5,9 @@
 
 ;; indent
 (setq js-indent-level 2)
+
+(eval-after-load 'js-mode
+  '(add-hook 'js-mode-hook #'add-node-modules-path))
+
+(eval-after-load 'rjsx-mode
+  '(add-hook 'rjsx-mode-hook #'add-node-modules-path))
