@@ -75,17 +75,7 @@
 (setq ring-bell-function 'ignore)
 
 ;; dynamic font size
-(defun fontify-frame (frame)
-  (interactive)
-  (if window-system
-      (progn
-        (if (> (x-display-pixel-width) 2000)
-            (set-frame-parameter frame 'font "Inconsolata 19") ;; Cinema Display
-         (set-frame-parameter frame 'font "Inconsolata 16")))))
-
-;; Fontify current frame
-(fontify-frame nil)
-
-;; Fontify any future frames
-(push 'fontify-frame after-make-frame-functions)
-
+(when window-system
+    (if (> (x-display-pixel-width) 2000)
+        (set-frame-font "Inconsolata 19" nil t) ;; Cinema Display
+      (set-frame-font "Inconsolata 16" nil t)))
