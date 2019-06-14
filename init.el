@@ -64,6 +64,9 @@
     ;; elpy for python
     elpy
 
+    ;; prompt for a target window
+    switch-window
+
     ;; tomorrow themes
     color-theme-sanityinc-tomorrow))
 
