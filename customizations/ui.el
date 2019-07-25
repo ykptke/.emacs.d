@@ -74,8 +74,5 @@
 ;; no bell
 (setq ring-bell-function 'ignore)
 
-;; dynamic font size
-(when window-system
-    (if (> (x-display-pixel-width) 2000)
-        (set-frame-font "Inconsolata 19" nil t) ;; Cinema Display
-      (set-frame-font "Inconsolata 16" nil t)))
+;; default-text-scale
+(default-text-scale-mode)

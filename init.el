@@ -66,7 +66,10 @@
 
     ;; prompt for a target window
     switch-window
-
+    
+    ;; text scale
+    default-text-scale
+    
     ;; tomorrow themes
     color-theme-sanityinc-tomorrow))
 
