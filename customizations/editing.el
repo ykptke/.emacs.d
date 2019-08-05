@@ -33,6 +33,9 @@
 (setq inhibit-splash-screen t)
 (switch-to-buffer "*scratch*")
 
+;; Turkish mode
+(require 'turkish)
+
 ;; comments
 (defun toggle-comment-on-line ()
   "comment or uncomment current line"
@@ -58,26 +61,17 @@
 (smartparens-global-mode)
 
 ;; search anything in files.
-(global-set-key (kbd "M-ğ s") 'rgrep)
+(global-set-key (kbd "C-x p") 'rgrep)
+
 ;; deleting all white space in file.
-(global-set-key (kbd "M-ğ w") 'delete-trailing-whitespace)
+(global-set-key (kbd "C-x t") 'delete-trailing-whitespace)
 
 ;; magit status
-(global-set-key (kbd "M-ş s") 'magit-status)
-;; magit blame
-(global-set-key (kbd "M-ş b") 'magit-blame)
+(global-set-key (kbd "C-x g") 'magit-status)
 
 ;; Navigation paragraph
 (global-set-key (kbd "M-p") 'backward-paragraph)
 (global-set-key (kbd "M-n") 'forward-paragraph)
-
-;; Navigation buffer top-end
-(global-set-key (kbd "C-ğ") 'beginning-of-buffer)
-(global-set-key (kbd "C-ü") 'end-of-buffer)
-
-;; Next/Prev buffer
-(global-set-key (kbd "M-ş n") 'next-buffer)
-(global-set-key (kbd "M-ş p") 'previous-buffer)
 
 ;; key bindings
 (when (eq system-type 'darwin) ;; mac specific settings
