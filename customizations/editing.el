@@ -82,6 +82,6 @@
 ;; jump to definition `https://github.com/jacktasia/dumb-jump`
 (dumb-jump-mode)
 (global-set-key (kbd "M-g j") 'dumb-jump-go)
-(global-set-key (kbd "M-g b") 'dumb-jump-go-back)
+(global-set-key (kbd "M-g b") 'dumb-jump-back)
 (global-set-key (kbd "M-g o") 'dumb-jump-go-other-window)
 (global-set-key (kbd "M-g l") 'dumb-jump-quick-look)
