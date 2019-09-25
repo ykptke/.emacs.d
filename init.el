@@ -72,7 +72,15 @@
 
     ;; text scale
     default-text-scale
+    
+    ;; ripgrep
+    ripgrep
 
+    ;; dumb jump
+    dumb-jump
+
+    ac-php
+    
     ;; tomorrow themes
     color-theme-sanityinc-tomorrow))
 
@@ -105,6 +113,7 @@
 ;; Langauage-specific
 (load "setup-flycheck.el")
 (load "setup-javascript.el")
+(load "setup-php.el")
 (load "setup-typescript.el")
 (load "setup-yasnippet.el")
 (load "setup-elpy.el")
@@ -113,13 +122,13 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-enabled-themes (quote (sanityinc-tomorrow-day)))
+ '(custom-enabled-themes (quote (sanityinc-tomorrow-bright)))
  '(custom-safe-themes
    (quote
     ("bb08c73af94ee74453c90422485b29e5643b73b05e8de029a6909af6a3fb3f58" "1b8d67b43ff1723960eb5e0cba512a2c7a2ad544ddb2533a90101fd1852b426e" default)))
  '(package-selected-packages
    (quote
-    (turkish react-snippets yasnippet elpy rjsx-mode color-theme-sanityinc-tomorrow tide typescript-mode company js2-mode flycheck web-mode git-timemachine magit smartparens))))
+    (ripgrep dumb-jump ac-php turkish react-snippets yasnippet elpy rjsx-mode color-theme-sanityinc-tomorrow tide typescript-mode company js2-mode flycheck web-mode git-timemachine magit smartparens))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
