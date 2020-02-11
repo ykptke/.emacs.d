@@ -85,3 +85,5 @@
 (global-set-key (kbd "M-g b") 'dumb-jump-back)
 (global-set-key (kbd "M-g o") 'dumb-jump-go-other-window)
 (global-set-key (kbd "M-g l") 'dumb-jump-quick-look)
+
+(setq mode-require-final-newline nil)
