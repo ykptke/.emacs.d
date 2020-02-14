@@ -79,3 +79,4 @@ ido.last
 *.data
 .last-package-update-day
 flycheck_init.el
+transient/
