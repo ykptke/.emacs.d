@@ -81,7 +81,8 @@
     ac-php
 
     ;; ui
-    powerline))
+    powerline
+    indent-guide))
 
 (dolist (p my-packages)
   (when (not (package-installed-p p))
