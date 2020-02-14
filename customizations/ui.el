@@ -63,10 +63,19 @@
   "Activate a light color theme."
   (interactive)
   (set-frame-parameter nil 'background-mode 'light)
-  (enable-theme 'solarized))
+  (enable-theme 'solarized)
+  (powerline-reset))
 
 (defun dark ()
   "Activate a dark color theme."
   (interactive)
   (set-frame-parameter nil 'background-mode 'dark)
-  (enable-theme 'solarized))
+  (enable-theme 'solarized)
+  (powerline-reset))
+
+;; powerline
+(require 'powerline)
+(powerline-default-theme)
+
+
+

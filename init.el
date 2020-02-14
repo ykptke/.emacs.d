@@ -78,7 +78,10 @@
     ;; ripgrep
     ripgrep
 
-    ac-php))
+    ac-php
+
+    ;; ui
+    powerline))
 
 (dolist (p my-packages)
   (when (not (package-installed-p p))
