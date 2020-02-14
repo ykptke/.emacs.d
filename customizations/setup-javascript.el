@@ -1,13 +1,10 @@
 ;; install it major mode for JavaScript editing
 
-(add-to-list 'auto-mode-alist '("\\.js\\'" . rjsx-mode))
+(require 'js2-mode)
+(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+
+;; Better imenu
+(add-hook 'js2-mode-hook #'js2-imenu-extras-mode)
+
+;; reactjs
 (add-to-list 'auto-mode-alist '("\\.jsx\\'" . rjsx-mode))
-
-;; indent
-(setq js-indent-level 2)
-
-(eval-after-load 'js-mode
-  '(add-hook 'js-mode-hook #'add-node-modules-path))
-
-(eval-after-load 'rjsx-mode
-  '(add-hook 'rjsx-mode-hook #'add-node-modules-path))

@@ -42,9 +42,11 @@
 
     exec-path-from-shell
     add-node-modules-path
+
+    ;; js
     json-mode
     js2-mode
-
+    
     ;; js mode for reactjs
     rjsx-mode
 
@@ -76,13 +78,7 @@
     ;; ripgrep
     ripgrep
 
-    ;; dumb jump
-    dumb-jump
-
-    ac-php
-    
-    ;; tomorrow themes
-    color-theme-sanityinc-tomorrow))
+    ac-php))
 
 (dolist (p my-packages)
   (when (not (package-installed-p p))
@@ -95,6 +91,9 @@
 ;; Add a directory to our load path so that when you `load` things
 ;; below, Emacs knows where to look for the corresponding file.
 (add-to-list 'load-path "~/.emacs.d/customizations")
+
+;; custom themes
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 
 ;; These customizations make it easier for you to navigate files,
 ;; switch buffers, and choose options from the minibuffer.
@@ -117,21 +116,3 @@
 (load "setup-typescript.el")
 (load "setup-yasnippet.el")
 (load "setup-elpy.el")
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(custom-enabled-themes (quote (sanityinc-tomorrow-bright)))
- '(custom-safe-themes
-   (quote
-    ("bb08c73af94ee74453c90422485b29e5643b73b05e8de029a6909af6a3fb3f58" "1b8d67b43ff1723960eb5e0cba512a2c7a2ad544ddb2533a90101fd1852b426e" default)))
- '(package-selected-packages
-   (quote
-    (ripgrep dumb-jump ac-php turkish react-snippets yasnippet elpy rjsx-mode color-theme-sanityinc-tomorrow tide typescript-mode company js2-mode flycheck web-mode git-timemachine magit smartparens))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
