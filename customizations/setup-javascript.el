@@ -1,13 +1,15 @@
-;; install it major mode for JavaScript editing
+(require 'web-mode)
 
-(require 'js2-mode)
-(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+;; auto-enable for .js/.jsx files
+(add-to-list 'auto-mode-alist '("\\.jsx?$" . web-mode)) 
 
-;; indent
-(setq js-indent-level 2)
+;; JSX syntax highlighting
+(setq web-mode-content-types-alist '(("jsx" . "\\.js[x]?\\'")))
 
-;; Better imenu
-(add-hook 'js2-mode-hook #'js2-imenu-extras-mode)
-
-;; reactjs
-(add-to-list 'auto-mode-alist '("\\.jsx\\'" . rjsx-mode))
+;; indentation and other settings
+(defun web-mode-init-hook ()
+  (setq web-mode-css-indent-offset 2)
+  (setq web-mode-code-indent-offset 2)
+  (setq web-mode-markup-indent-offset 2))
+  
+(add-hook 'web-mode-hook  'web-mode-init-hook)

@@ -46,9 +46,6 @@
     ;; js
     json-mode
     js2-mode
-    
-    ;; js mode for reactjs
-    rjsx-mode
 
     ;; company is a text completion framework
     company
@@ -78,6 +75,8 @@
     ;; ripgrep
     ripgrep
 
+    ;; php
+    php-mode
     ac-php
 
     ;; ui
@@ -96,9 +95,6 @@
 ;; below, Emacs knows where to look for the corresponding file.
 (add-to-list 'load-path "~/.emacs.d/customizations")
 
-;; custom themes
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
-
 ;; These customizations make it easier for you to navigate files,
 ;; switch buffers, and choose options from the minibuffer.
 (load "navigation.el")
@@ -114,9 +110,7 @@
 (load "misc.el")
 
 ;; Langauage-specific
-(load "setup-flycheck.el")
-(load "setup-javascript.el")
 (load "setup-php.el")
+(load "setup-javascript.el")
 (load "setup-typescript.el")
-(load "setup-yasnippet.el")
-(load "setup-elpy.el")
+(load "setup-flycheck.el")
