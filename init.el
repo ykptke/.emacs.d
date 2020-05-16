@@ -80,6 +80,7 @@
     ac-php
 
     ;; ui
+    dracula-theme
     powerline
     indent-guide))
 
@@ -114,3 +115,17 @@
 (load "setup-javascript.el")
 (load "setup-typescript.el")
 (load "setup-flycheck.el")
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (dracula-theme web-mode turkish tide switch-window smartparens ripgrep react-snippets powerline magit json-mode js2-mode indent-guide ido-vertical-mode git-timemachine exec-path-from-shell elpy default-text-scale add-node-modules-path ac-php))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
