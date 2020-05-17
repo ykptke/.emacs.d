@@ -46,6 +46,7 @@
     ;; js
     json-mode
     js2-mode
+    rjsx-mode
 
     ;; company is a text completion framework
     company

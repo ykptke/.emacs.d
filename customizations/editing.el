@@ -51,6 +51,12 @@
   (untabify (region-beginning) (region-end))
   (keyboard-quit))
 
+;; web-mode indentation
+(defun web-mode-init-hook ()
+  (setq web-mode-css-indent-offset 2)
+  (setq web-mode-code-indent-offset 2)
+  (setq web-mode-markup-indent-offset 2))
+
 ;; disable selection copy
 (setq select-enable-primary nil)
 
