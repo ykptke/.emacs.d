@@ -51,11 +51,13 @@
   (untabify (region-beginning) (region-end))
   (keyboard-quit))
 
-;; web-mode indentation
-(defun web-mode-init-hook ()
-  (setq web-mode-css-indent-offset 2)
-  (setq web-mode-code-indent-offset 2)
-  (setq web-mode-markup-indent-offset 2))
+;; web-mode indent
+(setq web-mode-markup-indent-offset 2)
+;; CSS offset indentation
+(setq web-mode-css-indent-offset 2)
+(setq css-indent-offset 2)
+;; Script/code offset indentation (for JavaScript, Java, PHP, Ruby, Go, VBScript, Python, etc.)
+(setq web-mode-code-indent-offset 2)
 
 ;; disable selection copy
 (setq select-enable-primary nil)
