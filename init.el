@@ -4,10 +4,7 @@
 
 ;; Define package repositories
 (require 'package)
-(add-to-list 'package-archives
-             '("marmalade" . "http://marmalade-repo.org/packages/") t)
-(add-to-list 'package-archives
-             '("melpa" . "http://melpa.milkbox.net/packages/") t)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 
 ;; Load and activate emacs packages. Do this first so that the
 ;; packages are loaded before you start trying to modify them.
@@ -89,6 +86,12 @@
   (when (not (package-installed-p p))
     (package-install p)))
 
+(setq custom-file "~/.emacs.d/custom.el")
+(load custom-file)
+
+(setq default-directory "~/")
+(setq command-line-default-directory "~/")
+
 ;;;;
 ;; Customization
 ;;;;
@@ -97,18 +100,9 @@
 ;; below, Emacs knows where to look for the corresponding file.
 (add-to-list 'load-path "~/.emacs.d/customizations")
 
-;; These customizations make it easier for you to navigate files,
-;; switch buffers, and choose options from the minibuffer.
-(load "navigation.el")
-
-;; These customizations change the way emacs looks and disable/enable
-;; some user interface elements
 (load "ui.el")
-
-;; These customizations make editing a bit nicer.
+(load "navigation.el")
 (load "editing.el")
-
-;; Hard-to-categorize customizations
 (load "misc.el")
 
 ;; Langauage-specific
@@ -116,17 +110,3 @@
 (load "setup-javascript.el")
 (load "setup-typescript.el")
 (load "setup-flycheck.el")
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   (quote
-    (dracula-theme web-mode turkish tide switch-window smartparens ripgrep react-snippets powerline magit json-mode js2-mode indent-guide ido-vertical-mode git-timemachine exec-path-from-shell elpy default-text-scale add-node-modules-path ac-php))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
