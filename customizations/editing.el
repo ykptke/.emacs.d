@@ -88,3 +88,8 @@
         x-select-enable-clipboard t))
 
 (setq mode-require-final-newline nil)
+
+;; hide / show block
+(global-set-key (kbd "C-x a h") 'hs-hide-block)
+(global-set-key (kbd "C-x a s") 'hs-show-block)
+
