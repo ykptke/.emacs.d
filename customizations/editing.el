@@ -93,3 +93,6 @@
 (global-set-key (kbd "C-x a h") 'hs-hide-block)
 (global-set-key (kbd "C-x a s") 'hs-show-block)
 
+;; yasnippet
+(require 'yasnippet)
+(yas-global-mode 1)

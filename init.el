@@ -73,6 +73,8 @@
     ;; ripgrep
     ripgrep
 
+    terminal-here
+
     ;; php
     php-mode
     ac-php
