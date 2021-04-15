@@ -1,3 +1,13 @@
+;; Turn off the menu bar at the top of each frame because it's distracting
+(menu-bar-mode -1)
+
+;; Turn off toolbar
+(tool-bar-mode -1)
+
+;; Don't show native OS scroll bars for buffers because they're redundant
+(when (fboundp 'scroll-bar-mode)
+  (scroll-bar-mode -1))
+
 ;; theme
 (require 'dracula-theme)
 (load-theme 'dracula t)
