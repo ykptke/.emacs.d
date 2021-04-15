@@ -68,9 +68,6 @@
 ;; Smartparens is a minor mode for dealing with pairs
 (smartparens-global-mode)
 
-;; search anything in files.
-(global-set-key (kbd "C-x p") 'rgrep)
-
 ;; deleting all white space in file.
 (global-set-key (kbd "C-x t") 'delete-trailing-whitespace)
 

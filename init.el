@@ -79,6 +79,10 @@
     php-mode
     ac-php
 
+    projectile
+    ripgrep
+    counsel-projectile
+
     ;; ui
     dracula-theme
     powerline

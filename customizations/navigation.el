@@ -9,3 +9,11 @@
 (setq-default switch-window-shortcut-style 'number)
 (setq-default switch-window-timeout nil)
 (global-set-key (kbd "C-x o") 'switch-window)
+
+
+;; search anything with projectile
+(projectile-mode +1)
+(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+(setq projectile-project-search-path '("~/Projects/JotForm"))
+(setq projectile-switch-project-action #'projectile-dired)
+(counsel-projectile-mode)
