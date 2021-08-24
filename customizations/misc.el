@@ -24,5 +24,3 @@
   (delete-other-windows))
 
 (global-set-key (kbd "C-x a k") 'kill-other-buffers)
-
-(global-set-key (kbd "C-c t") (lambda() (interactive) (find-file "~/yk/todo.org")))
