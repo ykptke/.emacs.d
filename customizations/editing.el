@@ -87,9 +87,17 @@
 (setq mode-require-final-newline nil)
 
 ;; hide / show block
+(add-hook 'prog-mode-hook #'hs-minor-mode)
 (global-set-key (kbd "C-x a h") 'hs-hide-block)
 (global-set-key (kbd "C-x a s") 'hs-show-block)
 
 ;; yasnippet
 (require 'yasnippet)
 (yas-global-mode 1)
+
+(require 'terminal-here)
+(global-set-key (kbd "C-c o") #'terminal-here-launch)
+(global-set-key (kbd "C-c l") #'terminal-here-project-launch)
+
+(setq terminal-here-mac-terminal-command 'iterm2)
+
