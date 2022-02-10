@@ -116,3 +116,4 @@
 (load "setup-javascript.el")
 (load "setup-typescript.el")
 (load "setup-flycheck.el")
+(load "setup-haskell.el")
