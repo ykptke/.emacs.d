@@ -13,7 +13,15 @@
 
 ;; search anything with projectile
 (projectile-mode +1)
+;; Recommended keymap prefix on macOS
+(define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
+;; Recommended keymap prefix on Windows/Linux
 (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+
 (setq projectile-project-search-path '("~/Projects/JotForm"))
 (setq projectile-switch-project-action #'projectile-dired)
 (counsel-projectile-mode)
+
+;; org-tree-slide-mode
+(global-set-key (kbd "<f8>") 'org-tree-slide-mode)
+(global-set-key (kbd "S-<f8>") 'org-tree-slide-skip-done-toggle)

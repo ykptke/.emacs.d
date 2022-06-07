@@ -29,6 +29,8 @@
              (define-key php-mode-map (kbd "M-]")
                'ac-php-find-symbol-at-point)
 
+             (setq flycheck-phpcs-standard "PSR12")
+
              ;; Return back (optional)
              (define-key php-mode-map (kbd "M-[")
                'ac-php-location-stack-back)))

@@ -82,6 +82,10 @@
     projectile
     ripgrep
     counsel-projectile
+    multiple-cursors
+    haskell-mode
+    ox-reveal
+    org-bullets
 
     ;; ui
     dracula-theme
@@ -117,3 +121,4 @@
 (load "setup-typescript.el")
 (load "setup-flycheck.el")
 (load "setup-haskell.el")
+(load "org-mode.el")
