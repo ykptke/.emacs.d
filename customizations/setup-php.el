@@ -1,5 +1,4 @@
 ;; install it major mode for PHP editing
-
 (defun bs-php-mode-hook ()
   (setq indent-tabs-mode nil)
   (setq c-basic-offset 4)
@@ -34,3 +33,5 @@
              ;; Return back (optional)
              (define-key php-mode-map (kbd "M-[")
                'ac-php-location-stack-back)))
+
+(advice-add 'php--syntax-propertize-quotes-in-comment :override #'ignore)

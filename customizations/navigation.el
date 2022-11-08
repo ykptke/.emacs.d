@@ -1,8 +1,8 @@
 ;; ido-vertical-mode
-(require 'ido-vertical-mode)
-(ido-mode 1)
-(ido-vertical-mode 1)
-(setq ido-vertical-define-keys 'C-n-and-C-p-only)
+;; (require 'ido-vertical-mode)
+;; (ido-mode 1)
+;; (ido-vertical-mode 1)
+;; (setq ido-vertical-define-keys 'C-n-and-C-p-only)
 
 ;; Make "C-x o" prompt for a target window when there are more than 2
 (require 'switch-window)
@@ -25,3 +25,13 @@
 ;; org-tree-slide-mode
 (global-set-key (kbd "<f8>") 'org-tree-slide-mode)
 (global-set-key (kbd "S-<f8>") 'org-tree-slide-skip-done-toggle)
+
+(helm-mode 1)
+(setq completion-styles '(flex))
+(global-set-key (kbd "M-x") 'helm-M-x)
+(global-set-key (kbd "C-x C-f") 'helm-find-files)
+;; (setq helm-projectile-fuzzy-match nil)
+(require 'helm-projectile)
+(projectile-mode)
+(setq projectile-completion-system 'helm)
+(helm-projectile-on)

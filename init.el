@@ -1,32 +1,18 @@
-;;;;
-;; Packages
-;;;;
-
-;; Define package repositories
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 
-;; Load and activate emacs packages. Do this first so that the
-;; packages are loaded before you start trying to modify them.
-;; This also sets the load path.
 (package-initialize)
 
-;; Download the ELPA archive description if needed.
-;; This informs Emacs about the latest versions of all packages, and
-;; makes them available for download.
 (when (not package-archive-contents)
   (package-refresh-contents))
 
-;; The packages you want installed. You can also install these
-;; manually with M-x package-install
-;; Add in your own as you wish:
-(defvar my-packages
-  '(;; ido menu
-    ido-vertical-mode
 
+(defvar my-packages
+  '(
+    ;; TypeScript Interactive Development Environment
+    tide
     ;; Smartparens is a minor mode for dealing with pairs
     smartparens
-
     ;; git integration
     magit
     git-timemachine
@@ -51,15 +37,8 @@
     ;; typescript mode
     typescript-mode
 
-    ;; TypeScript Interactive Development Environment
-    tide
-
     ;; yasnippets
     yasnippet
-    react-snippets
-
-    ;; elpy for python
-    elpy
 
     ;; prompt for a target window
     switch-window
@@ -74,18 +53,27 @@
     ripgrep
 
     terminal-here
-
     ;; php
     php-mode
     ac-php
 
     projectile
-    ripgrep
     counsel-projectile
+    
     multiple-cursors
     haskell-mode
     ox-reveal
     org-bullets
+
+    ;; new
+    treemacs
+    lsp-mode
+    lsp-ui
+    lsp-treemacs
+    helm
+    helm-rg
+    helm-projectile
+    dap-mode
 
     ;; ui
     dracula-theme
@@ -114,11 +102,13 @@
 (load "navigation.el")
 (load "editing.el")
 (load "misc.el")
+(load "setup-lspmode.el")
+(load "setup-orgmode.el")
+(load "setup-flycheck.el")
 
 ;; Langauage-specific
 (load "setup-php.el")
 (load "setup-javascript.el")
 (load "setup-typescript.el")
-(load "setup-flycheck.el")
 (load "setup-haskell.el")
-(load "org-mode.el")
+

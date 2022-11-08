@@ -8,8 +8,8 @@
 ;; isearch-forward, so this swaps the bindings.
 (global-set-key (kbd "C-s") 'isearch-forward-regexp)
 (global-set-key (kbd "C-r") 'isearch-backward-regexp)
-(global-set-key (kbd "C-M-s") 'isearch-forward)
-(global-set-key (kbd "C-M-r") 'isearch-backward)
+;; (global-set-key (kbd "C-M-s") 'isearch-forward)
+;; (global-set-key (kbd "C-M-r") 'isearch-backward)
 
 ;; Don't use hard tabs
 (setq-default indent-tabs-mode nil)
@@ -88,8 +88,8 @@
 
 ;; hide / show block
 (add-hook 'prog-mode-hook #'hs-minor-mode)
-(global-set-key (kbd "C-x a h") 'hs-hide-block)
-(global-set-key (kbd "C-x a s") 'hs-show-block)
+(global-set-key (kbd "C-c [") 'hs-hide-block)
+(global-set-key (kbd "C-c ]") 'hs-show-block)
 
 ;; yasnippet
 (require 'yasnippet)
@@ -103,7 +103,7 @@
 
 (require 'multiple-cursors)
 (global-set-key (kbd "C-c e") 'mc/edit-lines)
-(global-set-key (kbd "C-c C-p") 'mc/mark-all-like-this)
+(global-set-key (kbd "C-c C-.") 'mc/mark-all-like-this)
 (global-unset-key (kbd "M-<down-mouse-1>"))
 (global-set-key (kbd "M-<mouse-1>") 'mc/add-cursor-on-click)
 
