@@ -14,6 +14,9 @@ backups
 /network-security.data
 /.session
 /session.*
+/.lsp-session*
+/lsp-cache
+/saveplace
 /custom.el
 *.elc
 CVS
@@ -80,3 +83,4 @@ ido.last
 .last-package-update-day
 flycheck_init.el
 transient/
+/.cache
