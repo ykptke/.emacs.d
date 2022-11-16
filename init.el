@@ -83,7 +83,7 @@
 (setq uniquify-buffer-name-style 'forward)
 
 ;; maximize frame
-(set-frame-parameter (selected-frame) 'fullscreen 'maximized)
+;; (set-frame-parameter (selected-frame) 'fullscreen 'maximized)
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 
 ;; macos specific settings
@@ -152,7 +152,6 @@ With argument ARG, do this that many times."
   ;; show/hide blocks
   (define-key map (kbd "C-c [") #'hs-hide-block)
   (define-key map (kbd "C-c ]") #'hs-show-block)
-  (define-key map (kbd "C-x o") #'switch-window)
   )
 
 
@@ -201,9 +200,13 @@ With argument ARG, do this that many times."
 (use-package switch-window
   :config
   (setq-default switch-window-shortcut-style 'number)
-  (setq-default switch-window-timeout nil))
+  (global-set-key (kbd "C-x o") 'switch-window)
+  (global-set-key (kbd "C-x 1") 'switch-window-then-maximize)
+  (global-set-key (kbd "C-x 2") 'switch-window-then-split-below)
+  (global-set-key (kbd "C-x 3") 'switch-window-then-split-right)
+  (global-set-key (kbd "C-x 0") 'switch-window-then-delete))
 
-(define-key global-map (kbd "C-x o") #'switch-window)
+
 
 
 ;; Projectile  ========================================= ;;
@@ -301,6 +304,8 @@ With argument ARG, do this that many times."
                              (add-hook 'xref-backend-functions #'xref-js2-xref-backend nil t)))
   (add-hook 'js2-mode-hook (lambda ()
                              (setup-tide-mode)))
+  ;; indent
+  (setq js-indent-level 2)
   )
 
 
@@ -371,20 +376,6 @@ With argument ARG, do this that many times."
 
 (use-package git-timemachine
   :bind ("C-c t" . git-timemachine))
-
-(use-package blamer
-  :bind (("s-i" . blamer-show-commit-info))
-  :defer 20
-  :custom
-  (blamer-idle-time 0.3)
-  (blamer-min-offset 70)
-  :custom-face
-  (blamer-face ((t :foreground "#7a88cf"
-                    :background nil
-                    :height 140
-                    :italic t)))
-  :config
-  (global-blamer-mode 1))
 
 
 ;; Treemacs ========================================== ;;
