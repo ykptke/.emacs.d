@@ -1,128 +1,122 @@
-;; Backups ========================================== ;;
+;;; init.el --- Emacs configuration -*- lexical-binding: t -*-
 
-;; Auto-revert mode
-(global-auto-revert-mode 1)
-(setq auto-revert-interval 0.5)
+;;; Commentary:
 
-;; Backup stored in /tmp
-(setq backup-directory-alist
-      `((".*" . ,temporary-file-directory)))
-(setq auto-save-file-name-transforms
-      `((".*" , temporary-file-directory t)))
+;; Save the contents of this file to ~/.config/emacs/init.el and
+;; you're ready to boot up Emacs.
 
-(setq backup-by-copying t)
-(setq version-control t)
-(setq delete-old-versions t)
-(setq kept-new-versions 6)
-(setq kept-old-versions 2)
-(setq create-lockfiles nil)
+;; Hack this file! One of the best ways to get started with Emacs is
+;; to look at other peoples' configurations and extract the pieces
+;; that work for you. That's where this configuration started. I
+;; encourage you to read through the code in this file and explore the
+;; functions and variables using the built-in help system (details
+;; below). Happy hacking!
 
-(setq custom-file "~/.emacs.d/custom.el")
-(load custom-file)
+;; "C-<chr>  means hold the CONTROL key while typing the character <chr>.
+;; Thus, C-f would be: hold the CONTROL key and type f." (Emacs tutorial)
+;;
+;; - C-h t: Start the Emacs tutorial
+;; - C-h o some-symbol: Describe symbol
+;; - C-h C-q: Pull up the quick-help cheatsheet
 
+;;; Code:
 
-;; User ============================================= ;;
+;; Performance tweaks for modern machines
+(setq gc-cons-threshold 100000000) ; 100 mb
+(setq read-process-output-max (* 1024 1024)) ; 1mb
 
-(setq user-full-name "Yakup Teke"
-      user-mail-address "ykpteke@gmail.com")
-
-
-;; Defaults ========================================= ;;
-
-;; (setq frame-title-format '("%b"))
-(setq frame-title-format '("%f [%m]"))
-
+;; Remove extra UI clutter by hiding the scrollbar, menubar, and toolbar.
 (menu-bar-mode -1)
 (tool-bar-mode -1)
-(global-display-line-numbers-mode 1)
-
-(when (fboundp 'scroll-bar-mode)
-  (scroll-bar-mode -1))
-
-;; set default font
-(set-frame-font "Inconsolata 16" nil t)
-
-(setq use-short-answers t)
-(setq ring-bell-function 'ignore)
-(setq visible-bell nil)
-
-(setq fill-column 100)
-
-(show-paren-mode 1)
-;; Treat Camelcase as words
-(global-subword-mode 1)
-;; Remember cursor place
-(setq save-place-file (locate-user-emacs-file "saveplace"))
-(setq save-place-forget-unreadable-files t)
-(save-place-mode 1)
-;; Remember my bookmarks
-(setq bookmark-save-flag 1)
-;; Enable indentation+completion using the TAB key.
-(setq tab-always-indent 'complete)
-
-(setq-default indent-tabs-mode nil
-              tab-stop-list    ()
-              tab-width        2)
-(setq sentence-end-double-space nil)
-(setq scroll-step 1) ; keyboard scroll one line at a time
-(setq scroll-preserve-screen-position t)
-(setq scroll-conservatively 101)
-
-
-;; Global mark ring
-(setq global-mark-ring-max 50000)
-
-(delete-selection-mode 1)
-
-(setq icomplete-compute-delay 0)
-
-(autoload 'zap-up-to-char "misc"
-  "Kill up to, but not including ARGth occurrence of CHAR." t)
-
-(require 'uniquify)
-(setq uniquify-buffer-name-style 'forward)
+(scroll-bar-mode -1)
 
 ;; maximize frame
 ;; (set-frame-parameter (selected-frame) 'fullscreen 'maximized)
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 
+;; Set the font. Note: height = px * 100
+(set-face-attribute 'default nil :font "Menlo" :height 120)
+
+;; Add unique buffer names in the minibuffer where there are many
+;; identical files. This is super useful if you rely on folders for
+;; organization and have lots of files with the same name,
+;; e.g. foo/index.ts and bar/index.ts.
+(require 'uniquify)
+
+;; Automatically insert closing parens
+(electric-pair-mode t)
+
+;; Visualize matching parens
+(show-paren-mode 1)
+
+;; Enable indentation+completion using the TAB key.
+(setq tab-always-indent 'complete)
+;; Prefer spaces to tabs
+(setq-default indent-tabs-mode nil
+              tab-stop-list    ()
+              tab-width        2)
+(setq sentence-end-double-space nil)
+
+;; Automatically save your place in files
+(save-place-mode t)
+
+;; Save history in minibuffer to keep recent commands easily accessible
+(savehist-mode t)
+
+;; Keep track of open files
+(recentf-mode t)
+;; ; 50 files ought to be enough.
+(setq recentf-max-saved-items 50)
+
+;; Keep files up-to-date when they change outside Emacs
+(global-auto-revert-mode t)
+
+;; Display line numbers only when in programming modes
+(add-hook 'prog-mode-hook 'display-line-numbers-mode)
+
+;; The `setq' special form is used for setting variables. Remember
+;; that you can look up these variables with "C-h v variable-name".
+(setq uniquify-buffer-name-style 'forward
+      window-resize-pixelwise t
+      frame-resize-pixelwise t
+      load-prefer-newer t
+      backup-by-copying t
+      version-control t
+      delete-old-versions t
+      kept-new-versions 6
+      kept-old-versions 2
+      create-lockfiles nil
+      ;; Backups are placed into /tmp
+      backup-directory-alist `((".*" . ,temporary-file-directory))
+      auto-save-file-name-transforms `((".*" ,temporary-file-directory t))
+      ;; I'll add an extra note here since user customizations are important.
+      ;; Emacs actually offers a UI-based customization menu, "M-x customize".
+      ;; You can use this menu to change variable values across Emacs. By default,
+      ;; changing a variable will write to your init.el automatically, mixing
+      ;; your hand-written Emacs Lisp with automatically-generated Lisp from the
+      ;; customize menu. The following setting instead writes customizations to a
+      ;; separate file, custom.el, to keep your init.el clean.
+      custom-file (expand-file-name "custom.el" user-emacs-directory))
+
 ;; macos specific settings
-(when (eq system-type 'darwin) 
+(when (eq system-type 'darwin)
   (setq mac-option-modifier nil
         mac-command-modifier 'meta
         x-select-enable-clipboard t))
+(use-package exec-path-from-shell
+  :ensure t
+  :if (memq window-system '(mac ns x))
+  :config
+  (setq exec-path-from-shell-variables '("PATH" "GOPATH"))
+  (exec-path-from-shell-initialize))
 
-;; disable selection copy
+;; Disable selection copy to clipboard
 (setq select-enable-primary nil)
 
+;; show/hide blocks
+(add-hook 'prog-mode-hook #'hs-minor-mode)
 
-;; Package ========================================== ;;
-
-;; Initialize package sources
-(require 'package)
-
-(setq package-archives
-      '(("elpa" . "https://elpa.gnu.org/packages/")
-        ("org" . "https://orgmode.org/elpa/")
-        ("nongnu" . "https://elpa.nongnu.org/nongnu/")
-        ("melpa" . "https://melpa.org/packages/")))
-
-;; Highest number gets priority (what is not mentioned has priority 0)
-(setq package-archive-priorities
-      '(("elpa" . 2)
-        ("nongnu" . 1)))
-(package-initialize)
-
-(unless (package-installed-p 'use-package)
-  (package-refresh-contents)
-  (package-install 'use-package))
-(eval-and-compile
-  (setq use-package-always-ensure t
-        use-package-expand-minimally t))
-
-
-;; Keybindings ======================================= ;;
-
+;; Shortcuts
 (defun backward-delete-word (arg)
   "Delete characters backward until encountering the beginning of a word.
 With argument ARG, do this that many times."
@@ -134,123 +128,145 @@ With argument ARG, do this that many times."
 
 (let ((map global-map))
   (define-key map (kbd "C-;") #'comment-line)
-  (define-key map (kbd "C-c C-p") #'previous-buffer)
-  (define-key map (kbd "C-c C-n") #'next-buffer)
-  ;; Misc
-  (define-key map (kbd "C-x C-b") #'ibuffer)
-  (define-key map (kbd "M-z") #'zap-up-to-char)
-  ;; Isearch
-  (define-key map (kbd "C-s") #'isearch-forward-regexp)
-  (define-key map (kbd "C-r") #'isearch-backward-regexp)
-  (define-key map (kbd "C-M-s") #'isearch-forward)
-  (define-key map (kbd "C-M-r") #'isearch-backward)
-  ;; magit status
-  (define-key map (kbd "C-x g") #'magit-status)
   ;; Navigation paragraph
   (define-key map (kbd "M-p") #'backward-paragraph)
   (define-key map (kbd "M-n") #'forward-paragraph)
   ;; show/hide blocks
   (define-key map (kbd "C-c [") #'hs-hide-block)
   (define-key map (kbd "C-c ]") #'hs-show-block)
-  )
+  (define-key map (kbd "C-c h") #'hs-hide-level)
+  (define-key map (kbd "C-c s") #'hs-show-all))
 
+;; Bring in package utilities so we can install packages from the web.
+(require 'package)
 
-;; Theme ========================================== ;;
+;; Add MELPA, an unofficial (but well-curated) package registry to the
+;; list of accepted package registries. By default Emacs only uses GNU
+;; ELPA and NonGNU ELPA, https://elpa.gnu.org/ and
+;; https://elpa.nongnu.org/ respectively.
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
 
-(use-package dracula-theme
-  ;; Dracula Theme.
+;; Unless we've already fetched (and cached) the package archives,
+;; refresh them.
+(unless package-archive-contents
+  (package-refresh-contents))
+
+;; Add the :vc keyword to use-package, making it easy to install
+;; packages directly from git repositories.
+(unless (package-installed-p 'vc-use-package)
+  (package-vc-install "https://github.com/slotThe/vc-use-package"))
+(require 'vc-use-package)
+
+;; A quick primer on the `use-package' function (refer to
+;; "C-h f use-package" for the full details).
+;;
+;; (use-package my-package-name
+;;   :ensure t    ; Ensure my-package is installed
+;;   :after foo   ; Load my-package after foo is loaded (seldom used)
+;;   :init        ; Run this code before my-package is loaded
+;;   :bind        ; Bind these keys to these functions
+;;   :custom      ; Set these variables
+;;   :config      ; Run this code after my-package is loaded
+
+;; A package with a great selection of themes:
+;; https://protesilaos.com/emacs/ef-themes
+;; other best option is ef-winter
+(use-package ef-themes
   :ensure t
-  :pin melpa
   :config
-  (load-theme 'dracula t))
+  (ef-themes-select 'ef-symbiosis))
+
+;; Minibuffer completion is essential to your Emacs workflow and
+;; Vertico is currently one of the best out there. There's a lot to
+;; dive in here so I recommend checking out the documentation for more
+;; details: https://elpa.gnu.org/packages/vertico.html. The short and
+;; sweet of it is that you search for commands with "M-x do-thing" and
+;; the minibuffer will show you a filterable list of matches.
+(use-package vertico
+  :ensure t
+  :custom
+  (vertico-cycle t)
+  (read-buffer-completion-ignore-case t)
+  (read-file-name-completion-ignore-case t)
+  (completion-styles '(basic substring partial-completion flex))
+  :init
+  (vertico-mode))
+
+;; Improve the accessibility of Emacs documentation by placing
+;; descriptions directly in your minibuffer. Give it a try:
+;; "M-x find-file".
+(use-package marginalia
+  :after vertico
+  :ensure t
+  :init
+  (marginalia-mode))
 
 
-;; Hooks ============================================ ;;
+;; Add extra context to Emacs documentation to help make it easier to
+;; search and understand. This configuration uses the keybindings 
+;; recommended by the package author.
+(use-package helpful
+  :ensure t
+  :bind (("C-h f" . #'helpful-callable)
+         ("C-h v" . #'helpful-variable)
+         ("C-h k" . #'helpful-key)
+         ("C-c C-d" . #'helpful-at-point)
+         ("C-h F" . #'helpful-function)
+         ("C-h C" . #'helpful-command)))
 
-(add-hook 'prog-mode-hook #'hs-minor-mode)
-
-
-;; Recent Files ======================================= ;;
-
-(require 'recentf)
-;; ;; enable recent files mode.
-(recentf-mode t)
-;; ; 50 files ought to be enough.
-(setq recentf-max-saved-items 50)
-
-
-;; Diminish ======================================= ;;
-
-(use-package diminish
+;; Note that `php-mode' assumes php code is separate from HTML.
+;; If you prefer working with PHP and HTML in a single file you
+;; may prefer `web-mode'.
+(use-package php-mode
   :ensure t)
 
-
-;; Which Key ========================================= ;;
-
-(use-package which-key
-  :defer 0
-  :diminish which-key-mode
-  :config
-  (which-key-mode)
-  (setq which-key-idle-delay 1))
-
-
-;; Swith Window  ========================================= ;;
-
-(use-package switch-window
-  :config
-  (setq-default switch-window-shortcut-style 'number)
-  (global-set-key (kbd "C-x o") 'switch-window)
-  (global-set-key (kbd "C-x 1") 'switch-window-then-maximize)
-  (global-set-key (kbd "C-x 2") 'switch-window-then-split-below)
-  (global-set-key (kbd "C-x 3") 'switch-window-then-split-right)
-  (global-set-key (kbd "C-x 0") 'switch-window-then-delete))
-
-
-
-
-;; Projectile  ========================================= ;;
-
-(use-package projectile
-  :bind-keymap
-  ("C-c p" . projectile-command-map)
-  :config
-  (projectile-mode +1)
-  (setq projectile-project-search-path '("~/Projects/JotForm"))
-  (setq projectile-switch-project-action #'helm-projectile))
-
-
-;; Helm ================================================ ;;
-
-(use-package helm
+;; TypeScript, JS, and JSX/TSX support.
+(use-package web-mode
   :ensure t
-  :demand
-  :bind (("M-x" . helm-M-x)
-         ("C-x C-f" . helm-find-files)
-         ("C-x b" . helm-buffers-list)
-         ("C-x c o" . helm-occur)) ;SC
-  ("M-y" . helm-show-kill-ring) ;SC
-  ("C-x r b" . helm-filtered-bookmarks) ;SC
-  :preface (require 'helm-config)
+  :mode (("\\.ts\\'" . web-mode)
+         ("\\.js\\'" . web-mode)
+         ("\\.mjs\\'" . web-mode)
+         ("\\.tsx\\'" . web-mode)
+         ("\\.jsx\\'" . web-mode))
+  :custom
+  (web-mode-content-types-alist '(("jsx" . "\\.js[x]?\\'")))
+  (web-mode-code-indent-offset 2)
+  (web-mode-css-indent-offset 2)
+  (web-mode-markup-indent-offset 2)
+  (web-mode-enable-auto-quoting nil))
+
+;; language server protocol settings
+(use-package lsp-mode
+  :ensure t
+  :hook ((php-mode . lsp-deferred)
+         (web-mode . lsp-deferred)
+         (lsp-mode . lsp-enable-which-key-integration))
+  :commands (lsp lsp-deferred)
   :config
-  (helm-mode 1)
-  (define-key helm-find-files-map (kbd "C-<backspace>") nil))
+  (setq lsp-enable-which-key-integration t)
+  (setq lsp-enable-indentation nil)
+  ;; (setq lsp-enable-on-type-formatting nil)
+  (setq lsp-treemacs-sync-mode 1))
 
-(use-package helm-projectile
-  :config
-  (setq projectile-completion-system 'helm)
-  (helm-projectile-on))
+;; intelephense settings
+(with-eval-after-load 'lsp-mode
+  (lsp-register-custom-settings '(("intelephense.diagnostics.undefinedConstants" nil t)))
+  (lsp-register-custom-settings '(("intelephense.diagnostics.undefinedTypes" nil t))))
 
+(use-package lsp-ui
+  :ensure t
+  :commands lsp-ui-mode)
 
-;; yasnippet ================================== ;;
+(use-package lsp-treemacs
+  :ensure t)
 
+;; Snippet support
 (use-package yasnippet
+  :ensure t
   :config
   (yas-global-mode 1))
 
-
-;; Multiple Cursors ================================== ;;
-
+;; Adding multiple cursors
 (use-package multiple-cursors
   :ensure t
   :diminish multiple-cursors
@@ -263,175 +279,61 @@ With argument ARG, do this that many times."
          ("C-c e" . mc/mark-edit-lines)
          ))
 
-
-;; Flycheck ================================== ;;
-
-(use-package flycheck
-  :after org
-  :hook
-  (org-src-mode . disable-flycheck-for-elisp)
-  :custom
-  (flycheck-emacs-lisp-initialize-packages t)
-  (flycheck-display-errors-delay 0.1)
-  :config
-  (global-flycheck-mode)
-  (flycheck-set-indication-mode 'left-margin))
-
-(use-package flycheck-inline
-  :config (global-flycheck-inline-mode))
-
-
-;; Company ================================== ;;
-
-(use-package company
-  :bind (:map company-active-map
-         ("C-n" . company-select-next)
-         ("C-p" . company-select-previous))
-  :config
-  (setq company-idle-delay 0.3)
-  (global-company-mode t))
-
-
-; Javascript Mode ================================= ;;
-
-(use-package js2-mode
-  :mode ("\\.js\\'")
-  :config
-  ;; (add-hook 'js2-mode-hook #'js2-imenu-extras-mode)
-  (add-hook 'js2-mode-hook #'js2-refactor-mode)
-  (define-key js-mode-map (kbd "M-.") nil)
-  (add-hook 'js2-mode-hook (lambda ()
-                             (add-hook 'xref-backend-functions #'xref-js2-xref-backend nil t)))
-  (add-hook 'js2-mode-hook (lambda ()
-                             (setup-tide-mode)))
-  ;; indent
-  (setq js-indent-level 2)
-  )
-
-
-;; Typescript Mode ================================== ;;
-
-(use-package tide :ensure t)
-
-(defun setup-tide-mode ()
-  "Setup 'tide-mode' for js/ts."
-  (interactive)
-  (tide-setup)
-  (flycheck-mode +1)
-  (setq flycheck-check-syntax-automatically '(save mode-enabled))
-  (tide-hl-identifier-mode +1))
-
-(use-package typescript-mode
-  :mode "\\.ts\\'"
-  :config
-  (setq typescript-indent-level 2)
-  (add-hook 'typescript-mode-hook #'setup-tide-mode))
-
-
-;; Web Mode ================================== ;;
-
-(use-package web-mode
-  :custom
-  (web-mode-markup-indent-offset 2)
-  (web-mode-css-indent-offset 2)
-  (web-mode-code-indent-offset 2)
-  :config
-  (add-to-list 'auto-mode-alist '("\\.jsx\\'" . web-mode))
-  (add-to-list 'auto-mode-alist '("\\.tsx\\'" . web-mode))
-  (add-hook 'web-mode-hook
-            (lambda ()
-              (when (string-equal "tsx" (file-name-extension buffer-file-name))
-                (setup-tide-mode))))
-  ;; enable typescript-tslint checker
-  (flycheck-add-mode 'typescript-tslint 'web-mode)
-  (add-hook 'web-mode-hook
-            (lambda ()
-              (when (string-equal "jsx" (file-name-extension buffer-file-name))
-                (setup-tide-mode))))
-  (flycheck-add-mode 'javascript-eslint 'web-mode))
-
-
-;; Bash ========================================== ;;
-
-(add-hook 'shell-mode-hook 'flycheck-mode)
-
-
-;; YAML ========================================== ;;
-
-(use-package yaml-mode)
-
-
-;; JSON ========================================== ;;
-
-(use-package json-mode)
-
-
-;; GIT ========================================== ;;
-
-(use-package magit
-  :bind (("C-x g" . magit-status)
-	 ("C-x M-g" . magit-dispatch))
-  :init
-  (setq project-switch-commands nil)) ; avoid magit error on C-n/C-p
-
-(use-package git-timemachine
-  :bind ("C-c t" . git-timemachine))
-
-
-;; Treemacs ========================================== ;;
-
-(use-package treemacs
-  :bind ("C-c S" . treemacs))
-
-
-;; Icons ========================================== ;;
-
-(use-package all-the-icons
-  :if (display-graphic-p))
-
-(use-package all-the-icons-dired
-  :hook (dired-mode . all-the-icons-dired-mode))
-
-
-;; PHP Mode ========================================== ;;
-
-(use-package php-mode)
-
-
-;; LSP Mode ========================================== ;;
-
-(use-package lsp-mode
-    :hook (php-mode . lsp-deferred)
-    :commands (lsp lsp-deferred))
-
-(use-package lsp-ui :commands lsp-ui-mode)
-(use-package lsp-treemacs :commands lsp-treemacs-errors-list)
-
-(with-eval-after-load 'lsp-mode
-  (lsp-register-custom-settings '(("intelephense.diagnostics.undefinedConstants" nil t)))
-  (lsp-register-custom-settings '(("intelephense.diagnostics.undefinedTypes" nil t))))
-
-;; Smartparens ========================================== ;;
-
-(use-package smartparens
-  :diminish smartparens-mode ;; Do not show in modeline
-  :init
-  (require 'smartparens-config)
-  :config
-  (smartparens-global-mode t) ;; These options can be t or nil.
-  (show-smartparens-global-mode t)
-  (setq sp-show-pair-from-inside t)
-  :custom-face
-  (sp-show-pair-match-face ((t (:foreground "Orange")))) ;; Could also have :background "Grey" for example.
-  )
-
-
 ;; Indent Guides
-
 (use-package indent-guide
+  :ensure t
   :config
   (indent-guide-global-mode)
   (set-face-background 'indent-guide-face "dimgray"))
 
+;; Git tools
+(use-package magit
+  :ensure t
+  :bind (("C-x g" . magit-status)
+         ("C-x M-g" . magit-dispatch)))
+(use-package git-timemachine
+  :bind ("C-c t" . git-timemachine))
 
-;; ========================================== ;;
+(use-package company
+  :ensure t
+  :config
+  (setq eldoc-idle-delay 0.75)
+  (setq company-idle-delay 0.75)
+  (setq flymake-no-changes-timeout 0.5)
+  (global-company-mode 1))
+
+(use-package projectile
+  :ensure t
+  :init
+  (projectile-mode +1)
+  :bind (:map projectile-mode-map
+              ("s-p" . projectile-command-map)
+              ("C-c p" . projectile-command-map))
+  :config
+  (setq projectile-project-search-path '("~/Projects/JotForm")))
+
+(use-package which-key
+  :ensure t
+  :config
+  (which-key-mode))
+
+(use-package flycheck
+  :ensure t
+  :init (global-flycheck-mode)
+  :config
+  (setq flycheck-checker-error-threshold (* 1024 1024)))
+
+(use-package treemacs
+  :ensure t
+  :defer t)
+
+;; switch between windows
+(use-package switch-window
+  :ensure t
+  :config
+  (setq-default switch-window-shortcut-style 'number)
+  (global-set-key (kbd "C-x o") 'switch-window)
+  (global-set-key (kbd "C-x 1") 'switch-window-then-maximize)
+  (global-set-key (kbd "C-x 2") 'switch-window-then-split-below)
+  (global-set-key (kbd "C-x 3") 'switch-window-then-split-right)
+  (global-set-key (kbd "C-x 0") 'switch-window-then-delete))
