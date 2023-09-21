@@ -86,6 +86,9 @@
       kept-new-versions 6
       kept-old-versions 2
       create-lockfiles nil
+      read-file-name-completion-ignore-case t
+      read-buffer-completion-ignore-case t
+      completion-ignore-case t
       ;; Backups are placed into /tmp
       backup-directory-alist `((".*" . ,temporary-file-directory))
       auto-save-file-name-transforms `((".*" ,temporary-file-directory t))
@@ -337,3 +340,8 @@ With argument ARG, do this that many times."
   (global-set-key (kbd "C-x 2") 'switch-window-then-split-below)
   (global-set-key (kbd "C-x 3") 'switch-window-then-split-right)
   (global-set-key (kbd "C-x 0") 'switch-window-then-delete))
+
+;; riggrep search
+(use-package rg
+  :ensure t
+  :init (rg-enable-default-bindings))
