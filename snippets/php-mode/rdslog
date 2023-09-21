@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: rdslog
+# key: rdslog
+# --
+
+$out = @fopen("/www/v3/yakupteke/logs/rds.log", "a+");
+@fwrite($out, var_export($1, true) . PHP_EOL);
+@fclose($out);
+$0
